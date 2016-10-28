@@ -53,7 +53,6 @@ function countDown(secs) {
         $('#js-timer').css('background-color', 'red');
     }
 
-
     $('.time-remaining-time').html(remainingTime);
     if (timeUnit != "TIME IS UP!") {
         timeUnit += ' remaining';
