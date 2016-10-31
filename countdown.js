@@ -8,7 +8,14 @@ if ($('#js-timer').length > 0) {
 if (mins != null && jQuery.isNumeric(mins)) {
     $('body').append('<div id="js-timer" style="position:fixed;top:20px;right:10px;width:270px; background-color: black; color: white; font-size: 25px; padding: 8px; font-weight: bold; text-align:center"></div>');
 
-    $('#js-timer').append('<span class="time-remaining-time"></span> <span class="time-remaining-text"></span>');
+    $('#js-timer').append('<span class="time-remaining-time"></span> <span class="time-remaining-text"></span> <span id="js-timer-close" style="font-size: 11px;cursor:pointer; top:18px; right:14px; position:fixed">X</span>');
+
+    $('#js-timer-close').on('click', function() {
+        if (window.jsTimeout != undefined) {
+            window.clearTimeout(window.jsTimeout);
+        }
+        $('#js-timer').remove();
+    });
 
     countDown(mins * 60);
 }
